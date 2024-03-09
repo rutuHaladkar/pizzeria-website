@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <link rel= "shortcut icon" type = "image/png" href="logo4.png">
+  <script>
+function fun()
+{
+  var username=document.getElementById("username").value;
+  var password=document.getElementById("password").value;
+  bigint number=document.getElementById("number").value;
+  var address=document.getElementById("address").value;
+  var x=new XMLHttpRequest();
+  x.open("POST","sign in.php?username="+username+"&password="+password+"&number="+number+"&address="+address,true);
+  x.send();
+  x.onreadystatechange=function()
+  {
+    if(this.readyState == 4)
+    {
+      document.getElementById("ans").innerHTML = this.responseText;
+    }
+  }
+}
+</script>
+  </head>
+<style>
+ *{
+box-sizing: border-box;
+}
+@media only screen and (max-width: 600px) {
+   body{
+width:100%;
+padding:0
+}
+img {
+  width: 100%;
+  height: auto;
+}
+   .row{
+width:100%;
+padding:0
+}
+}
+body{
+			background-image: url('signin img.jpg');
+			background-size: 100% 100%;
+			align-self: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+ }
+ h1{
+ margin-top: 75px;
+color:black;
+font:Monotype Corsiva;
+text-align:center;
+margin-left: 650px;
+margin-right: 650px;
+background-color:orangered;
+}
+#button{
+  	height: 40px;
+  	width: 100px;
+  	text-align: center;
+  	font-size: larger;
+  	border-radius: 10px;
+  	border-color: white;
+  	background-color: black;
+    color: white;
+    cursor:pointer;
+  }
+  .row::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.header{
+			padding: 5px 5px;
+		}
+#corner{
+	border-radius: 10px;
+	margin-bottom: 15px;
+  border: 3px solid white;
+  color: white;
+  background-color: black;
+}
+input:focus,textarea:focus{
+  outline: none;
+}
+.card{
+	background: black;
+   padding-top:2px;
+  padding-bottom:10px;
+	margin-left: 400px;
+	border-radius: 5px;
+  width: 700px;
+  margin-top: 70px;
+}
+ </style>
+ <body>
+ 	 
+ </body>
+ <div class="row">
+    <div class="card">
+      	 <center>
+    <h2 style="font-size: 30px;color:white;">Sign in!</h2>
+    <h4 style="font-size: 20px;color:white;">Please use the form below.</h4>
+    <form action="sign in.php" method="post">
+<table>
+<tr><td><input type=text placeholder="Username"required style="height: 60px; width:650px; padding:10px;" id="corner" name="username" id="username"></td></tr> 
+
+<tr><td><input type=password placeholder="Password" required style="height: 60px; width: 650px; padding:10px;" id="corner" name="password" id="password"></td></tr>
+
+<tr><td><input type=number placeholder="Phone Number" required style="height: 60px; width: 650px; padding:10px;" id="corner" name="number" id="number"></td></tr>
+
+<tr><td><textarea rows=7 cols=30 placeholder="Address"style="width: 650px;  resize: none; padding:10px;" id="corner" name="address" id="address"></textarea></td></tr>
+</table>
+  <input type="submit" name="submit" value="submit" id="button" onclick="fun()">
+ <br>
+</form>
+</center>
+</div>
+</div>
+ 
